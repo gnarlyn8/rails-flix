@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @reviews = @user.reviews
   end
 
   def new
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
   def require_correct_user
     set_user
     unless current_user?(@user)
-      redirect_to movies_path, status: :see_other, 
+      redirect_to movies_path, status: :see_other,
         alert: "You can only edit your own account."
     end
   end
