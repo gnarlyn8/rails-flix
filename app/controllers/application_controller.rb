@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    unless current_user_admin?
+      redirect_to movies_path, status: :see_other,
+        alert: "Unauthorized access!"
+    end
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
@@ -22,4 +29,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user?
+
+  def current_user_admin?
+    current_user&.admin?
+  end
+
+  helper_method :current_user_admin?
 end
