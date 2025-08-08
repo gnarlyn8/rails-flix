@@ -8,7 +8,10 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: "Welcome back, #{@user.name}!"
+      redirect_path = session[:intended_url] || user_path(@user)
+
+      redirect_to redirect_path, notice: "Welcome back, #{@user.name}!"
+      session.delete(:intended_url)
     else
       flash.now[:alert] = "Email / Password did not match."
       render :new, status: :unprocessable_entity

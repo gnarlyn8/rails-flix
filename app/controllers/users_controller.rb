@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin, except: [:new, :create]
+  before_action :require_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -45,6 +47,14 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user)
       .permit(:name, :email, :username, :password, :password_confirmation)
+  end
+
+  def require_correct_user
+    set_user
+    unless current_user?(@user)
+      redirect_to movies_path, status: :see_other, 
+        alert: "You can only edit your own account."
+    end
   end
 
   def set_user
