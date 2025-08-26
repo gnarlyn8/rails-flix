@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 10, allow_blank: true }
   validates :username, format: { with: /\A[A-Z0-9]+\z/i }
 
-  scope :by_name, -> { order(:name)}
-  scope :not_admins, -> { by_name.where(admin: false)}
+  scope :by_name, -> { order(:name) }
+  scope :not_admins, -> { by_name.where(admin: false) }
 
   def gravatar_id
     Digest::MD5::hexdigest(email.downcase)
