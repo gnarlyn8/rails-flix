@@ -1,24 +1,48 @@
-# pragmatic-rails-flix
+# Flix - Movie Review Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails-based movie review and rating application where users can browse movies, read reviews, and manage their favorites.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- User authentication and profiles
+- Movie browsing with details (title, director, duration, genre)
+- User reviews and ratings with star system
+- Favorite movies functionality
+- Genre categorization
+- Responsive Bootstrap UI
 
-* System dependencies
+## Technologies
 
-* Configuration
+- **Backend**: Ruby on Rails 8.0.2
+- **Frontend**: ERB templates, Bootstrap CSS
+- **Database**: SQLite (development), PostgreSQL (production)
+- **Authentication**: bcrypt for secure passwords
+- **Asset Pipeline**: Propshaft with CSS bundling
+- **JavaScript**: Stimulus with importmaps
 
-* Database creation
+## Getting Started
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+- Ruby 3.x
+- Rails 8.0.2
+- SQLite3 (development)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Installation
 
-* Deployment instructions
+1. Clone the repository
+2. Run `bundle install`
+3. Run `bin/rails db:create db:migrate db:seed`
+4. Start the server with `bin/dev`
 
-* ...
+The application will be available at `http://localhost:3000`
+
+## Production
+
+The application is deployed on Heroku and available at the production URL.
+
+## Development
+
+- Run tests: `bin/rails test`
+- Code linting: `bin/rubocop`
+- Security scanning: `bin/brakeman`
