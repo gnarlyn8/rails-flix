@@ -27,3 +27,10 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
   prepared_statements: true
   advisory_locks: false
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+  queue:
+    url: <%= ENV["DATABASE_URL"] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
