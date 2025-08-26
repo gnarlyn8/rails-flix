@@ -10,6 +10,8 @@ class Review < ApplicationRecord
     message: "must be between 1 and 5"
   }
 
+  scope :past_n_days, ->(past_days) { where("created_at >= ?", past_days.days.ago)}
+
   def stars_as_percent
     (stars / 5.0) * 100
   end
