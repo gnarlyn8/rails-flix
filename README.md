@@ -40,7 +40,7 @@ The application will be available at `http://localhost:3000`
 
 ## Production
 
-The application is deployed on Heroku and available at the https://rails-flix-daf7127169ad.herokuapp.com/
+The application is deployed on Heroku and available [here](https://rails-flix-daf7127169ad.herokuapp.com/)
 
 ## Development
 
