@@ -1,5 +1,6 @@
 # Flix - Movie Review Application
 
+git
 A Rails-based movie review and rating application where users can browse movies, read reviews, and manage their favorites.
 
 ## Features
@@ -39,7 +40,7 @@ The application will be available at `http://localhost:3000`
 
 ## Production
 
-The application is deployed on Heroku and available at the production URL.
+The application is deployed on Heroku and available at the https://rails-flix-daf7127169ad.herokuapp.com/
 
 ## Development
 
